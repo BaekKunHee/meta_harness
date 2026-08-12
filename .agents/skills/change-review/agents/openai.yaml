@@ -1,0 +1,4 @@
+interface:
+  display_name: "Change Review"
+  short_description: "Review a change for consequential defects and missing evidence"
+  default_prompt: "Use $change-review to review the current change and return only evidence-backed actionable findings."

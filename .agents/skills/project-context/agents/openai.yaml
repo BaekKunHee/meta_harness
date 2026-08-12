@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Context"
+  short_description: "Initialize and refresh evidence-based project context"
+  default_prompt: "Use $project-context to initialize this service repository from inspected evidence and report unresolved decisions."

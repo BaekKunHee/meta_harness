@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/agentic-service-harness/project.schema.json",
+  "title": "Agentic service project inventory",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "components",
+    "manifests",
+    "profiles",
+    "risk_tags",
+    "commands",
+    "source_fingerprint"
+  ],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "generated_by": { "type": "string" },
+    "source_fingerprint": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "components": { "type": "array", "items": { "type": "object" } },
+    "manifests": { "type": "array", "items": { "type": "object" } },
+    "profiles": { "type": "array", "items": { "type": "object" } },
+    "risk_tags": { "type": "array", "items": { "type": "object" } },
+    "commands": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["status", "category", "component", "cwd"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["required", "optional", "not_applicable"]
+          },
+          "argv": { "type": "array", "items": { "type": "string" } },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "environment_variables": { "type": "array", "items": { "type": "string" } },
+    "safety_boundary": { "type": "object" }
+  },
+  "additionalProperties": true
+}

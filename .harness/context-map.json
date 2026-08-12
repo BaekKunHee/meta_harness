@@ -1,0 +1,168 @@
+{
+  "defaults": {
+    "checks": [
+      "harness",
+      "affected"
+    ],
+    "documents": [
+      "docs/agent/start-here.md",
+      "docs/agent/source-of-truth.md",
+      "docs/context/architecture.md",
+      "docs/context/data-and-trust.md",
+      "docs/context/testing.md"
+    ],
+    "review_lenses": [
+      "regression",
+      "test-integrity"
+    ]
+  },
+  "generated_by": "agentic-service-harness",
+  "routes": [
+    {
+      "checks": [
+        "affected",
+        "full"
+      ],
+      "documents": [
+        "docs/context/testing.md"
+      ],
+      "id": "testing",
+      "paths": [
+        "app/**",
+        "src/**",
+        "services/**",
+        "packages/**",
+        "tests/**"
+      ],
+      "review_lenses": [
+        "regression",
+        "test-integrity",
+        "public-contract"
+      ],
+      "topics": [
+        "test",
+        "testing",
+        "tdd",
+        "contract",
+        "regression"
+      ]
+    },
+    {
+      "checks": [
+        "affected"
+      ],
+      "documents": [
+        "docs/context/product.md",
+        "docs/context/domain.md"
+      ],
+      "id": "product",
+      "paths": [
+        "app/**",
+        "src/**",
+        "apps/**"
+      ],
+      "review_lenses": [
+        "product-contract",
+        "regression"
+      ],
+      "topics": [
+        "product",
+        "user",
+        "behavior",
+        "scope"
+      ]
+    },
+    {
+      "checks": [
+        "harness",
+        "affected"
+      ],
+      "documents": [
+        "docs/context/architecture.md",
+        "docs/context/domain.md"
+      ],
+      "id": "architecture",
+      "paths": [
+        "app/**",
+        "src/**",
+        "apps/**",
+        "services/**",
+        "packages/**"
+      ],
+      "review_lenses": [
+        "regression",
+        "public-contract"
+      ],
+      "topics": [
+        "architecture",
+        "component",
+        "dependency",
+        "api"
+      ]
+    },
+    {
+      "checks": [
+        "security",
+        "full"
+      ],
+      "documents": [
+        "docs/context/data-and-trust.md",
+        "SECURITY.md"
+      ],
+      "id": "data-and-trust",
+      "paths": [
+        "**/migrations/**",
+        "**/auth/**",
+        "infra/**",
+        "deploy/**"
+      ],
+      "review_lenses": [
+        "security",
+        "authorization",
+        "migration",
+        "privacy"
+      ],
+      "topics": [
+        "security",
+        "auth",
+        "authorization",
+        "data",
+        "database",
+        "migration",
+        "ai"
+      ]
+    },
+    {
+      "checks": [
+        "full",
+        "security"
+      ],
+      "documents": [
+        "docs/context/operations-and-release.md"
+      ],
+      "id": "operations",
+      "paths": [
+        ".github/**",
+        "infra/**",
+        "deploy/**",
+        "Dockerfile",
+        "**/Dockerfile"
+      ],
+      "review_lenses": [
+        "operability",
+        "rollback",
+        "security"
+      ],
+      "topics": [
+        "operations",
+        "release",
+        "deploy",
+        "rollback",
+        "docker",
+        "infra"
+      ]
+    }
+  ],
+  "schema_version": "1.0",
+  "source_fingerprint": "edf5b96f3b87e01054883a44833c96ee3390a740a4859f00cbb6dd401448dc09"
+}

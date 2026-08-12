@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Contract TDD"
+  short_description: "Protect high-risk behavior with focused test-first development"
+  default_prompt: "Use $product-contract-tdd to implement this high-risk product contract with the cheapest meaningful test boundary."

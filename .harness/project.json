@@ -1,0 +1,283 @@
+{
+  "commands": {
+    "agent-harness-root:agent-evals": {
+      "argv": [
+        "python3",
+        "-I",
+        "-S",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evals/agent",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "category": "test",
+      "component": "agent-harness-root",
+      "cwd": ".",
+      "status": "required"
+    }
+  },
+  "components": [
+    {
+      "id": "agent-harness-root",
+      "impact_paths": [
+        ".harness/**",
+        ".agents/skills/**",
+        ".claude/**",
+        ".codex/**",
+        ".github/**",
+        "evals/agent/**",
+        "scripts/**",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "README.md",
+        "SECURITY.md",
+        "docs/agent/**"
+      ],
+      "kind": "agent-harness",
+      "manifests": [
+        ".agents/skills/change-review/SKILL.md",
+        ".agents/skills/change-review/agents/openai.yaml",
+        ".agents/skills/product-contract-tdd/SKILL.md",
+        ".agents/skills/product-contract-tdd/agents/openai.yaml",
+        ".agents/skills/project-context/SKILL.md",
+        ".agents/skills/project-context/agents/openai.yaml",
+        ".claude/agents/docs-researcher.md",
+        ".claude/agents/explorer.md",
+        ".claude/agents/reviewer.md",
+        ".claude/hooks/context.py",
+        ".claude/settings.json",
+        ".claude/skills/change-review",
+        ".claude/skills/product-contract-tdd",
+        ".claude/skills/project-context",
+        ".codex/agents/docs-researcher.toml",
+        ".codex/agents/explorer.toml",
+        ".codex/agents/reviewer.toml",
+        ".codex/config.toml",
+        ".codex/hooks.json",
+        ".harness/harness.py",
+        ".harness/schemas/context-map.schema.json",
+        ".harness/schemas/project.schema.json",
+        "evals/agent/skill_activation_cases.json",
+        "evals/agent/test_harness_contract.py",
+        "evals/agent/test_skill_activation_cases.py",
+        "scripts/check",
+        "scripts/context"
+      ],
+      "path": ".",
+      "profiles": [
+        "agent-harness"
+      ],
+      "validations": [
+        "agent-harness-root:agent-evals"
+      ]
+    }
+  ],
+  "environment_variables": [],
+  "generated_by": "agentic-service-harness",
+  "manifests": [
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".agents/skills/change-review/SKILL.md",
+      "sha256": "1167425b6f92e1c69bd3fc954c70cecbf44f022d014d5fb933f4bf36ee3d3b6f"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".agents/skills/change-review/agents/openai.yaml",
+      "sha256": "80c5c5374503c346fc162e791c08eeca1c5d00cae7d2c5fddf7b8f9e023f456f"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".agents/skills/product-contract-tdd/SKILL.md",
+      "sha256": "ad2ba7602441c2cf4aca71b2dc7568af6fbe9c9865eada29521907b243a72c53"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".agents/skills/product-contract-tdd/agents/openai.yaml",
+      "sha256": "8574789e7ffdc6ea7b800e364921971b7c68222287c9325d9da5983442123057"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".agents/skills/project-context/SKILL.md",
+      "sha256": "6b5d597490c2c569770377c2429c3ba4665c82b28386d500670140ff2982ebb5"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".agents/skills/project-context/agents/openai.yaml",
+      "sha256": "52364063c451556cdd778efa1ca632cf4c1abc35053b36ce0e8cc3d436d4b56b"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".claude/agents/docs-researcher.md",
+      "sha256": "6dcda942ca6e24220e1e1c5e528478ce2116dcc4977244b7026585fa28a42042"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".claude/agents/explorer.md",
+      "sha256": "e89dc25ac5e042d0f134e69857980a9aa2078fdfe4dad4ca43931a762113856b"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".claude/agents/reviewer.md",
+      "sha256": "59fcfab351170f39c2a6da631390b779132f4904056f4a1a2b6cabf0406dd0b8"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".claude/hooks/context.py",
+      "sha256": "c7a2d9c914f3176a339e4551990e1c6d0325db01672d686f2ce92d5dd986f22a"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".claude/settings.json",
+      "sha256": "9c164c1a6fcaed65bfed19bf426433db4507a18c4c68075d9412ed20e61b7c18"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control-symlink",
+      "path": ".claude/skills/change-review",
+      "sha256": "74f394882a251c0137ef8d918810518beadc67bd47e9c96a7f99a6d09c29247f",
+      "target": "../../.agents/skills/change-review"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control-symlink",
+      "path": ".claude/skills/product-contract-tdd",
+      "sha256": "73f93e5cd3f4c26425da8655334ef116a05dd708418c3c4c8cc2d12192622fe0",
+      "target": "../../.agents/skills/product-contract-tdd"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control-symlink",
+      "path": ".claude/skills/project-context",
+      "sha256": "54aae203697195cc2ea1f976ac8615512a24960c5b00d15d97c19882f7d50ec7",
+      "target": "../../.agents/skills/project-context"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".codex/agents/docs-researcher.toml",
+      "sha256": "4e0ac0e07c5a96dd3988cc939b592e64d164dae27d042a1db90641ad3d2f77cb"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".codex/agents/explorer.toml",
+      "sha256": "3c7a2bbc90f4409a7393a574ec1a35ef4491819c1ae5d35c1f6a8640bd603cc3"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".codex/agents/reviewer.toml",
+      "sha256": "a650cb06c59108c5c6094427cc1d3c030bd10934ae8aa099e9852f0d79262767"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".codex/config.toml",
+      "sha256": "d4c670da3c2404921a1ab177f4e5405449bc8321d713cc0b42b8046201fd33cc"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".codex/hooks.json",
+      "sha256": "8e50bde1c262e571252dc8024af7cc2f3aee3b29b727633bd9efac9ca5a9bbb3"
+    },
+    {
+      "kind": "github-actions",
+      "path": ".github/workflows/quality.yml",
+      "sha256": "42cd5d05190b9f05b7688474433027f160c2d0d0524f199d9acec61d4b2f1f2f"
+    },
+    {
+      "kind": "github-actions",
+      "path": ".github/workflows/security.yml",
+      "sha256": "61bc9a71a67159b657eee036db2836b60935ae110650b870dccd05af69988bd5"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".harness/harness.py",
+      "sha256": "758cdc3e0e971fff804f37a5e4d4d001a06613c11507785c1e53737d715d7bee"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".harness/schemas/context-map.schema.json",
+      "sha256": "8f480e9e3fb90c6471ba00def5acc42fda1249ef4e74a25efb05915536cced42"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".harness/schemas/project.schema.json",
+      "sha256": "45b4f2fa92855fe1cc9a70cd586201960b6c23c91d1fb3a0d3b1ba5d216afd46"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": "evals/agent/skill_activation_cases.json",
+      "sha256": "7940c9dcb2a1428536f713895aa403ee6506f7e247297d9d38ec19367fd87cf7"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": "evals/agent/test_harness_contract.py",
+      "sha256": "902ce388d064663b7096bd1dc03d030a6021a85bb70c56d4d532c38b90eb2e2e"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": "evals/agent/test_skill_activation_cases.py",
+      "sha256": "2b09f95d083ea2966293f1bb1522442367f611959a5a034085e85dd9fd7d88ec"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": "scripts/check",
+      "sha256": "419f6c5b68ec5873aebaab3fe2209042e70484302012e57710e8099894f3e003"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": "scripts/context",
+      "sha256": "7973974dca15269e7a4fd7b886c82427fa3f78cd8edbfee732bb047c795c406a"
+    }
+  ],
+  "profiles": [
+    {
+      "active": true,
+      "evidence": [
+        ".harness/harness.py"
+      ],
+      "id": "agent-harness"
+    },
+    {
+      "active": true,
+      "evidence": [
+        ".github/workflows/quality.yml",
+        ".github/workflows/security.yml"
+      ],
+      "id": "github-actions"
+    }
+  ],
+  "risk_tags": [],
+  "safety_boundary": {
+    "external_or_irreversible_effects": "explicit_confirmation_required",
+    "local_reversible_work": "autonomous"
+  },
+  "schema_version": "1.0",
+  "source_fingerprint": "edf5b96f3b87e01054883a44833c96ee3390a740a4859f00cbb6dd401448dc09"
+}

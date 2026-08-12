@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "project-context-direct",
+      "skill": "project-context",
+      "kind": "direct",
+      "prompt": "Use $project-context to initialize this new service repository and report the unresolved product decisions.",
+      "expected_activation": true,
+      "expected_behavior": "inspect_then_preview"
+    },
+    {
+      "id": "project-context-indirect",
+      "skill": "project-context",
+      "kind": "indirect",
+      "prompt": "The manifests and CI commands changed. Refresh the repository inventory and task-specific context without overwriting our notes.",
+      "expected_activation": true,
+      "expected_behavior": "inspect_then_preview"
+    },
+    {
+      "id": "project-context-incomplete",
+      "skill": "project-context",
+      "kind": "incomplete",
+      "prompt": "Help me onboard this existing service for agentic development.",
+      "expected_activation": true,
+      "expected_behavior": "inspect_before_questions"
+    },
+    {
+      "id": "project-context-negative",
+      "skill": "project-context",
+      "kind": "should_not_trigger",
+      "prompt": "Translate this release note into Korean without changing any files.",
+      "expected_activation": false,
+      "expected_behavior": "do_not_activate"
+    },
+    {
+      "id": "product-contract-tdd-direct",
+      "skill": "product-contract-tdd",
+      "kind": "direct",
+      "prompt": "Use $product-contract-tdd to fix the cross-tenant authorization regression, beginning with a failing API test.",
+      "expected_activation": true,
+      "expected_behavior": "red_green_refactor"
+    },
+    {
+      "id": "product-contract-tdd-indirect",
+      "skill": "product-contract-tdd",
+      "kind": "indirect",
+      "prompt": "A retried payment callback creates duplicate records. Protect the idempotency contract and implement the fix.",
+      "expected_activation": true,
+      "expected_behavior": "red_green_refactor"
+    },
+    {
+      "id": "product-contract-tdd-incomplete",
+      "skill": "product-contract-tdd",
+      "kind": "incomplete",
+      "prompt": "Change the public account lifecycle API so suspended accounts can be restored safely.",
+      "expected_activation": true,
+      "expected_behavior": "define_contract_before_editing"
+    },
+    {
+      "id": "product-contract-tdd-negative",
+      "skill": "product-contract-tdd",
+      "kind": "should_not_trigger",
+      "prompt": "Correct a typo in an internal Markdown heading and run the smallest relevant check.",
+      "expected_activation": false,
+      "expected_behavior": "do_not_activate"
+    },
+    {
+      "id": "change-review-direct",
+      "skill": "change-review",
+      "kind": "direct",
+      "prompt": "Use $change-review to review the staged changes for consequential defects. Keep the review read-only.",
+      "expected_activation": true,
+      "expected_behavior": "read_only_scoped_review"
+    },
+    {
+      "id": "change-review-indirect",
+      "skill": "change-review",
+      "kind": "indirect",
+      "prompt": "Before merge, inspect this branch against its merge base for authorization regressions and missing verification evidence.",
+      "expected_activation": true,
+      "expected_behavior": "read_only_scoped_review"
+    },
+    {
+      "id": "change-review-incomplete",
+      "skill": "change-review",
+      "kind": "incomplete",
+      "prompt": "Review my current local change and tell me only about actionable defects.",
+      "expected_activation": true,
+      "expected_behavior": "resolve_scope_then_review"
+    },
+    {
+      "id": "change-review-negative",
+      "skill": "change-review",
+      "kind": "should_not_trigger",
+      "prompt": "Implement the approved footer layout from the existing design and verify it locally.",
+      "expected_activation": false,
+      "expected_behavior": "do_not_activate"
+    }
+  ]
+}

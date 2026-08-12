@@ -1,0 +1,32 @@
+{
+  "description": "Inject a bounded repository context summary at session and subagent start. Project-local hooks run only after Codex trust review.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "^(startup|resume|clear|compact)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.harness/harness.py\" context --summary",
+            "timeout": 10,
+            "statusMessage": "Loading repository context",
+            "additionalContextLimit": 6000
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.harness/harness.py\" context --summary",
+            "timeout": 10,
+            "statusMessage": "Loading repository context for subagent",
+            "additionalContextLimit": 6000
+          }
+        ]
+      }
+    ]
+  }
+}

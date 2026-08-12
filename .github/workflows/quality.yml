@@ -1,0 +1,84 @@
+name: Quality
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deterministic-checks:
+    name: Deterministic checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Validate harness contracts
+        run: python3 .harness/harness.py check harness
+
+      - name: Detect required toolchains
+        id: toolchains
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          project = json.loads(Path(".harness/project.json").read_text(encoding="utf-8"))
+          managers = {
+              item.get("package_manager")
+              for item in project.get("manifests", [])
+              if isinstance(item, dict)
+          }
+          profiles = {
+              item.get("id")
+              for item in project.get("profiles", [])
+              if isinstance(item, dict) and item.get("active", True)
+          }
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as output:
+              output.write(f"node={'true' if 'node' in profiles else 'false'}\n")
+              output.write(f"uv={'true' if 'uv' in managers else 'false'}\n")
+              output.write(f"poetry={'true' if 'poetry' in managers else 'false'}\n")
+          PY
+
+      - name: Set up Node.js
+        if: steps.toolchains.outputs.node == 'true'
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: "22"
+          package-manager-cache: false
+
+      - name: Enable declared Node package manager
+        if: steps.toolchains.outputs.node == 'true'
+        run: corepack enable
+
+      - name: Set up uv
+        if: steps.toolchains.outputs.uv == 'true'
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          enable-cache: false
+
+      - name: Set up Poetry
+        if: steps.toolchains.outputs.poetry == 'true'
+        run: python3 -m pip install --disable-pip-version-check "poetry==2.4.1"
+
+      - name: Run all required project checks
+        run: python3 .harness/harness.py check full

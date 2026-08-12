@@ -1,0 +1,67 @@
+# Secret and local environment files
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Operating system and editors
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Logs and local reports
+*.log
+logs/
+coverage/
+htmlcov/
+.coverage
+.coverage.*
+test-results/
+playwright-report/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Node and common web tooling
+node_modules/
+.next/
+.nuxt/
+.svelte-kit/
+.turbo/
+.parcel-cache/
+.vite/
+out/
+
+# Infrastructure and local state
+.terraform/
+*.tfstate
+*.tfstate.*
+.serverless/
+.aws-sam/
+
+# Harness scratch data (configuration and schemas remain tracked)
+.harness/tmp/
+.harness/cache/
+
+# Private agent overrides (shared adapters remain tracked)
+CLAUDE.local.md
+**/.claude/settings.local.json

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/agentic-service-harness/context-map.schema.json",
+  "title": "Agentic service context routing map",
+  "type": "object",
+  "required": ["schema_version", "source_fingerprint", "defaults", "routes"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "generated_by": { "type": "string" },
+    "source_fingerprint": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "defaults": {
+      "type": "object",
+      "required": ["documents", "checks", "review_lenses"],
+      "properties": {
+        "documents": { "type": "array", "items": { "type": "string" } },
+        "checks": { "type": "array", "items": { "type": "string" } },
+        "review_lenses": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "topics", "paths", "documents", "checks", "review_lenses"],
+        "properties": {
+          "id": { "type": "string" },
+          "topics": { "type": "array", "items": { "type": "string" } },
+          "paths": { "type": "array", "items": { "type": "string" } },
+          "documents": { "type": "array", "items": { "type": "string" } },
+          "checks": { "type": "array", "items": { "type": "string" } },
+          "review_lenses": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
