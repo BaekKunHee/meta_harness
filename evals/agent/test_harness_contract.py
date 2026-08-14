@@ -240,6 +240,7 @@ target-version = "py311"
 def create_control_plane_fixture(root: Path) -> None:
     """Create the smallest currently valid static harness control plane."""
     write(root, ".harness/harness.py", "# fixture harness entrypoint\n")
+    write(root, "AGENTS.md", "# Fixture working agreement\n")
     for schema_name in ("project.schema.json", "context-map.schema.json"):
         write(
             root,
@@ -392,6 +393,43 @@ class HarnessContractTests(unittest.TestCase):
         output = (result.stdout + result.stderr).lower()
         self.assertIn("claude skill symlink", output)
         self.assertIn("project-context", output)
+
+    @unittest.skipUnless(hasattr(os, "symlink"), "symlinks are required")
+    def test_harness_gate_rejects_symlinked_claude_skills_directory(self) -> None:
+        create_control_plane_fixture(self.root)
+        create_claude_adapter_fixture(self.root)
+        skills_directory = self.root / ".claude/skills"
+        for adapter in skills_directory.iterdir():
+            adapter.unlink()
+        skills_directory.rmdir()
+        os.symlink(
+            self.root / ".agents/skills",
+            skills_directory,
+            target_is_directory=True,
+        )
+        run_harness(self.root, "init", "--write")
+
+        result = run_harness(
+            self.root, "check", "harness", expect_success=False
+        )
+
+        self.assertIn(
+            "claude skills directory",
+            (result.stdout + result.stderr).lower(),
+        )
+
+    @unittest.skipUnless(hasattr(os, "symlink"), "symlinks are required")
+    def test_harness_gate_rejects_missing_imported_agents_file(self) -> None:
+        create_control_plane_fixture(self.root)
+        create_claude_adapter_fixture(self.root)
+        (self.root / "AGENTS.md").unlink()
+        run_harness(self.root, "init", "--write")
+
+        result = run_harness(
+            self.root, "check", "harness", expect_success=False
+        )
+
+        self.assertIn("agents.md", (result.stdout + result.stderr).lower())
 
     def test_claude_adapter_prose_does_not_activate_runtime_profiles(self) -> None:
         write(

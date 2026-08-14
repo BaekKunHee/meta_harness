@@ -211,7 +211,7 @@
       "component": "agent-harness-root",
       "kind": "harness-control",
       "path": ".harness/harness.py",
-      "sha256": "758cdc3e0e971fff804f37a5e4d4d001a06613c11507785c1e53737d715d7bee"
+      "sha256": "aaad2d4022aed2eddd60c24e3e18dd7e3e0650010782f9bc248c3ad61f6233fa"
     },
     {
       "component": "agent-harness-root",
@@ -235,7 +235,7 @@
       "component": "agent-harness-root",
       "kind": "harness-control",
       "path": "evals/agent/test_harness_contract.py",
-      "sha256": "902ce388d064663b7096bd1dc03d030a6021a85bb70c56d4d532c38b90eb2e2e"
+      "sha256": "8f07599c551bacda6543812c835c40f940f79f24d9335c3f2ce54dbccfc72c1e"
     },
     {
       "component": "agent-harness-root",
@@ -279,5 +279,5 @@
     "local_reversible_work": "autonomous"
   },
   "schema_version": "1.0",
-  "source_fingerprint": "edf5b96f3b87e01054883a44833c96ee3390a740a4859f00cbb6dd401448dc09"
+  "source_fingerprint": "a01aa814ac38f8e4ccd3403b45657f2e44c0510fae29a242174ad54192584694"
 }

@@ -191,6 +191,14 @@ def _safe_regular_file(root: Path, path: Path) -> bool:
         return False
 
 
+def _safe_directory(root: Path, path: Path) -> bool:
+    """Return whether path is a non-symlinked directory inside the repository."""
+    try:
+        return not path.is_symlink() and path.is_dir() and _contained_path(root, path)
+    except OSError:
+        return False
+
+
 def _repository_path(root: Path, relative: str) -> Path | None:
     candidate_value = Path(relative)
     if candidate_value.is_absolute() or ".." in candidate_value.parts:
@@ -1472,6 +1480,7 @@ def _validate_meta_assets(root: Path) -> list[str]:
         ".harness/schemas/context-map.schema.json",
         "scripts/check",
         "scripts/context",
+        "AGENTS.md",
         "CLAUDE.md",
         ".claude/settings.json",
         ".claude/hooks/context.py",
@@ -1506,6 +1515,10 @@ def _validate_meta_assets(root: Path) -> list[str]:
         r"(?m)^\s*@AGENTS\.md\s*$", claude_entrypoint
     ):
         errors.append("CLAUDE.md must import the canonical AGENTS.md with @AGENTS.md")
+
+    claude_skills_directory = root / ".claude/skills"
+    if not _safe_directory(root, claude_skills_directory):
+        errors.append("Claude skills directory must be a repository-local directory")
 
     claude_settings_path = root / ".claude/settings.json"
     claude_settings = (
@@ -1614,6 +1627,8 @@ def _validate_meta_assets(root: Path) -> list[str]:
         claude_skill = root / ".claude/skills" / skill_name
         expected = root / ".agents/skills" / skill_name
         expected_target = f"../../.agents/skills/{skill_name}"
+        if not _safe_directory(root, claude_skills_directory):
+            continue
         if not claude_skill.is_symlink():
             errors.append(f"required Claude skill symlink is missing: {skill_name}")
             continue
