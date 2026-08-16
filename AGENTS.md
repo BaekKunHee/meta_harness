@@ -20,7 +20,8 @@ before relying on it. Do not invent product facts to fill gaps.
 ## Repository map
 
 - `.harness/`: machine-readable inventory, context routing, and deterministic gates
-- `.agents/skills/`: reusable project-context, TDD, and review workflows
+- `.agents/skills/`: reusable project-context, TDD, debugging, refactoring,
+  dependency-upgrade, review, and handoff workflows
 - `.codex/`: Codex project configuration and read-only specialist agents
 - `.claude/`: Claude Code settings plus adapters to the canonical rules and skills
 - `docs/agent/`: operating rules, source precedence, and definition of done
@@ -65,8 +66,9 @@ artifacts, or commit them.
 
 ## Subagents and review
 
-- Use `explorer` for repository evidence, `docs_researcher` for authoritative
-  references, and `reviewer` for independent risk review.
+- Use `explorer` for repository evidence, `historian` for Git-history context,
+  `docs_researcher` for authoritative references, and `reviewer` for independent
+  risk review.
 - Specialist agents are read-only. The main agent owns edits, decisions,
   integration, and final claims.
 - Parallelize independent questions only. Give each subagent a bounded scope and

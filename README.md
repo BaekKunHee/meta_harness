@@ -10,7 +10,8 @@ intentionally contains no application code.
 - A concise `AGENTS.md` router instead of one oversized prompt
 - Machine-readable component, command, risk, and context inventories
 - Progressive context loading for product, architecture, data, testing, and release
-- Reusable project-context, product-contract TDD, and change-review skills
+- Reusable skills for project context, product-contract TDD, systematic
+  debugging, safe refactoring, dependency upgrades, change review, and handoff
 - Codex and Claude Code adapters over one canonical working agreement and skill set
 - Read-only specialist subagents with main-agent ownership of implementation
 - One local/CI verification interface through `scripts/check`
@@ -50,8 +51,8 @@ Codex reads its project configuration from `.codex/`. Claude Code reads
 
 - `.claude/settings.json` loads the same bounded harness context at session and
   subagent start;
-- `.claude/agents/` defines the read-only explorer, reviewer, and documentation
-  researcher;
+- `.claude/agents/` defines the read-only explorer, historian, reviewer, and
+  documentation researcher;
 - each `.claude/skills/<name>` entry is a relative symlink to the matching
   canonical `.agents/skills/<name>` directory.
 

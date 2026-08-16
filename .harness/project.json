@@ -42,20 +42,34 @@
       "manifests": [
         ".agents/skills/change-review/SKILL.md",
         ".agents/skills/change-review/agents/openai.yaml",
+        ".agents/skills/dependency-upgrade/SKILL.md",
+        ".agents/skills/dependency-upgrade/agents/openai.yaml",
+        ".agents/skills/prepare-handoff/SKILL.md",
+        ".agents/skills/prepare-handoff/agents/openai.yaml",
         ".agents/skills/product-contract-tdd/SKILL.md",
         ".agents/skills/product-contract-tdd/agents/openai.yaml",
         ".agents/skills/project-context/SKILL.md",
         ".agents/skills/project-context/agents/openai.yaml",
+        ".agents/skills/safe-refactoring/SKILL.md",
+        ".agents/skills/safe-refactoring/agents/openai.yaml",
+        ".agents/skills/systematic-debugging/SKILL.md",
+        ".agents/skills/systematic-debugging/agents/openai.yaml",
         ".claude/agents/docs-researcher.md",
         ".claude/agents/explorer.md",
+        ".claude/agents/historian.md",
         ".claude/agents/reviewer.md",
         ".claude/hooks/context.py",
         ".claude/settings.json",
         ".claude/skills/change-review",
+        ".claude/skills/dependency-upgrade",
+        ".claude/skills/prepare-handoff",
         ".claude/skills/product-contract-tdd",
         ".claude/skills/project-context",
+        ".claude/skills/safe-refactoring",
+        ".claude/skills/systematic-debugging",
         ".codex/agents/docs-researcher.toml",
         ".codex/agents/explorer.toml",
+        ".codex/agents/historian.toml",
         ".codex/agents/reviewer.toml",
         ".codex/config.toml",
         ".codex/hooks.json",
@@ -95,6 +109,30 @@
     {
       "component": "agent-harness-root",
       "kind": "harness-control",
+      "path": ".agents/skills/dependency-upgrade/SKILL.md",
+      "sha256": "a9560acd44205e66ff054f485687528f4001c306d9dfdd98b5c98bd103e6b8b8"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".agents/skills/dependency-upgrade/agents/openai.yaml",
+      "sha256": "c7fedd8ae12783adb20ed2c3bbd08ee17aa599132775e496519679f6dfcf41c2"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".agents/skills/prepare-handoff/SKILL.md",
+      "sha256": "58b07f49f885a33964efa6873a4d59dba05bb2544ef4564f8ea9408d65e1d0e3"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".agents/skills/prepare-handoff/agents/openai.yaml",
+      "sha256": "929797007a7c6278fe220f0a277d6bdbe0273013e2c9a33c0b51ff2d3557cc3d"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
       "path": ".agents/skills/product-contract-tdd/SKILL.md",
       "sha256": "ad2ba7602441c2cf4aca71b2dc7568af6fbe9c9865eada29521907b243a72c53"
     },
@@ -119,6 +157,30 @@
     {
       "component": "agent-harness-root",
       "kind": "harness-control",
+      "path": ".agents/skills/safe-refactoring/SKILL.md",
+      "sha256": "964cd1e0930cf2bbf1aae0f7de696913c8a147a29e6986b1406c6b7cffa4b568"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".agents/skills/safe-refactoring/agents/openai.yaml",
+      "sha256": "1a2bbd29ba94c20ae8b51a5ebf2db0426fc2093a098f7141f9fb73f21e4c64da"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".agents/skills/systematic-debugging/SKILL.md",
+      "sha256": "aaf6989b3d229f0fdbfb3d348e57bfda6d3480296d6d72b0bfa127bd474d2d79"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".agents/skills/systematic-debugging/agents/openai.yaml",
+      "sha256": "bf803cf7b7ef31f487a63b3e494412c2c8c9c9be3d3177472bf71330a507f9b5"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
       "path": ".claude/agents/docs-researcher.md",
       "sha256": "6dcda942ca6e24220e1e1c5e528478ce2116dcc4977244b7026585fa28a42042"
     },
@@ -127,6 +189,12 @@
       "kind": "harness-control",
       "path": ".claude/agents/explorer.md",
       "sha256": "e89dc25ac5e042d0f134e69857980a9aa2078fdfe4dad4ca43931a762113856b"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".claude/agents/historian.md",
+      "sha256": "9e4534bee4ddd9ba78a6311b32494e6ab12e577d8f84f285dec94e168e587a32"
     },
     {
       "component": "agent-harness-root",
@@ -156,6 +224,20 @@
     {
       "component": "agent-harness-root",
       "kind": "harness-control-symlink",
+      "path": ".claude/skills/dependency-upgrade",
+      "sha256": "8a1de425729ff840b89c61acc8a727f75ced1baef5f93138d3eca14dffc69d33",
+      "target": "../../.agents/skills/dependency-upgrade"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control-symlink",
+      "path": ".claude/skills/prepare-handoff",
+      "sha256": "7e94dc33ccfd8bedd6b51cbd29010de41a00bc4ebd1d475fec80849d229a3185",
+      "target": "../../.agents/skills/prepare-handoff"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control-symlink",
       "path": ".claude/skills/product-contract-tdd",
       "sha256": "73f93e5cd3f4c26425da8655334ef116a05dd708418c3c4c8cc2d12192622fe0",
       "target": "../../.agents/skills/product-contract-tdd"
@@ -169,6 +251,20 @@
     },
     {
       "component": "agent-harness-root",
+      "kind": "harness-control-symlink",
+      "path": ".claude/skills/safe-refactoring",
+      "sha256": "fb45b4c568d0dd2b0e16b58e610a9e58a779f2d5e8f1df53adefa946de1156bd",
+      "target": "../../.agents/skills/safe-refactoring"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control-symlink",
+      "path": ".claude/skills/systematic-debugging",
+      "sha256": "ff953a85f7a20221b8b648f5a449be500250113274834d29266a0d26f62a3d64",
+      "target": "../../.agents/skills/systematic-debugging"
+    },
+    {
+      "component": "agent-harness-root",
       "kind": "harness-control",
       "path": ".codex/agents/docs-researcher.toml",
       "sha256": "4e0ac0e07c5a96dd3988cc939b592e64d164dae27d042a1db90641ad3d2f77cb"
@@ -178,6 +274,12 @@
       "kind": "harness-control",
       "path": ".codex/agents/explorer.toml",
       "sha256": "3c7a2bbc90f4409a7393a574ec1a35ef4491819c1ae5d35c1f6a8640bd603cc3"
+    },
+    {
+      "component": "agent-harness-root",
+      "kind": "harness-control",
+      "path": ".codex/agents/historian.toml",
+      "sha256": "d606f93ad8231cf81894e2864fdee32f5e32b69ff19cb6b0f66b06969d615ddc"
     },
     {
       "component": "agent-harness-root",
@@ -211,7 +313,7 @@
       "component": "agent-harness-root",
       "kind": "harness-control",
       "path": ".harness/harness.py",
-      "sha256": "aaad2d4022aed2eddd60c24e3e18dd7e3e0650010782f9bc248c3ad61f6233fa"
+      "sha256": "a914610c0be8cade84a145dc52481b1fdccdd735d0166388eedd5a194e9511ca"
     },
     {
       "component": "agent-harness-root",
@@ -229,7 +331,7 @@
       "component": "agent-harness-root",
       "kind": "harness-control",
       "path": "evals/agent/skill_activation_cases.json",
-      "sha256": "7940c9dcb2a1428536f713895aa403ee6506f7e247297d9d38ec19367fd87cf7"
+      "sha256": "202f56b5e9522c9e6094b342644fdcca4a981335c458609cc38c5230643d7232"
     },
     {
       "component": "agent-harness-root",
@@ -241,7 +343,7 @@
       "component": "agent-harness-root",
       "kind": "harness-control",
       "path": "evals/agent/test_skill_activation_cases.py",
-      "sha256": "2b09f95d083ea2966293f1bb1522442367f611959a5a034085e85dd9fd7d88ec"
+      "sha256": "54a0f3f0af51b7aded1c3340fa5a152bb8bb3cb033d0ad6d9911ea3a5d0774d3"
     },
     {
       "component": "agent-harness-root",
@@ -279,5 +381,5 @@
     "local_reversible_work": "autonomous"
   },
   "schema_version": "1.0",
-  "source_fingerprint": "a01aa814ac38f8e4ccd3403b45657f2e44c0510fae29a242174ad54192584694"
+  "source_fingerprint": "30d6b7bf5377cb692e7bcef218a86ca6d23e57389a713356b9860a2422a8da0c"
 }

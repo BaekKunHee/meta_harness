@@ -13,6 +13,10 @@ EXPECTED_SKILLS = {
     "project-context",
     "product-contract-tdd",
     "change-review",
+    "systematic-debugging",
+    "safe-refactoring",
+    "dependency-upgrade",
+    "prepare-handoff",
 }
 EXPECTED_KINDS = {"direct", "indirect", "incomplete", "should_not_trigger"}
 EXPECTED_BEHAVIORS = {
@@ -22,6 +26,14 @@ EXPECTED_BEHAVIORS = {
     "define_contract_before_editing",
     "read_only_scoped_review",
     "resolve_scope_then_review",
+    "reproduce_isolate_fix",
+    "gather_evidence_before_fixing",
+    "pin_behavior_then_refactor",
+    "clarify_scope_then_refactor",
+    "staged_upgrade_with_evidence",
+    "assess_before_upgrading",
+    "evidence_based_handoff",
+    "verify_before_handoff",
     "do_not_activate",
 }
 

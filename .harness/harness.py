@@ -902,10 +902,10 @@ def scan_repository(root: Path) -> dict[str, Any]:
             )
         claude_skill_links = [
             root / ".claude/skills" / skill_name
-            for skill_name in (
-                "project-context",
-                "product-contract-tdd",
-                "change-review",
+            for skill_name in sorted(
+                path.parent.name
+                for path in root.glob(".agents/skills/*/SKILL.md")
+                if _safe_regular_file(root, path)
             )
             if (root / ".claude/skills" / skill_name).is_symlink()
         ]
@@ -1569,9 +1569,8 @@ def _validate_meta_assets(root: Path) -> list[str]:
         except SyntaxError:
             errors.append("Claude context hook has invalid Python syntax")
 
-    for agent_name in ("explorer", "reviewer", "docs-researcher"):
-        relative = f".claude/agents/{agent_name}.md"
-        agent_path = root / relative
+    for agent_path in sorted(root.glob(".claude/agents/*.md")):
+        agent_name = agent_path.stem
         agent_text = (
             _read_text(agent_path) if _safe_regular_file(root, agent_path) else None
         )
@@ -1600,7 +1599,13 @@ def _validate_meta_assets(root: Path) -> list[str]:
         path = root / relative
         if _safe_regular_file(root, path) and not os.access(path, os.X_OK):
             errors.append(f"shell entrypoint is not executable: {relative}")
-    for skill_name in ("project-context", "product-contract-tdd", "change-review"):
+    required_skill_names = ("project-context", "product-contract-tdd", "change-review")
+    discovered_skill_names = {
+        path.parent.name
+        for path in root.glob(".agents/skills/*/SKILL.md")
+        if _safe_regular_file(root, path)
+    }
+    for skill_name in sorted({*required_skill_names, *discovered_skill_names}):
         skill_path = root / ".agents/skills" / skill_name / "SKILL.md"
         metadata_path = root / ".agents/skills" / skill_name / "agents/openai.yaml"
         skill_text = (

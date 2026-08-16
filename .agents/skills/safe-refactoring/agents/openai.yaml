@@ -1,0 +1,4 @@
+interface:
+  display_name: "Safe Refactoring"
+  short_description: "Restructure code in small steps with behavior pinned by checks"
+  default_prompt: "Use $safe-refactoring to restructure this code without changing observable behavior."

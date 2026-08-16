@@ -28,6 +28,7 @@ coverage target; coverage must protect the changed risk.
 ## Use subagents deliberately
 
 - `explorer`: locate and compare repository evidence without writing.
+- `historian`: reconstruct when and why behavior changed from Git history without writing.
 - `docs_researcher`: consult authoritative external or internal references without writing.
 - `reviewer`: independently inspect a bounded diff for regressions and risk without writing.
 

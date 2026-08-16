@@ -96,6 +96,134 @@
       "prompt": "Implement the approved footer layout from the existing design and verify it locally.",
       "expected_activation": false,
       "expected_behavior": "do_not_activate"
+    },
+    {
+      "id": "systematic-debugging-direct",
+      "skill": "systematic-debugging",
+      "kind": "direct",
+      "prompt": "Use $systematic-debugging to find why the nightly export job fails intermittently and fix the proven root cause.",
+      "expected_activation": true,
+      "expected_behavior": "reproduce_isolate_fix"
+    },
+    {
+      "id": "systematic-debugging-indirect",
+      "skill": "systematic-debugging",
+      "kind": "indirect",
+      "prompt": "Checkout requests started returning 500 after yesterday's deploy. Track down the actual cause before changing any code.",
+      "expected_activation": true,
+      "expected_behavior": "reproduce_isolate_fix"
+    },
+    {
+      "id": "systematic-debugging-incomplete",
+      "skill": "systematic-debugging",
+      "kind": "incomplete",
+      "prompt": "Something is wrong with the app, it keeps breaking randomly. Please fix it.",
+      "expected_activation": true,
+      "expected_behavior": "gather_evidence_before_fixing"
+    },
+    {
+      "id": "systematic-debugging-negative",
+      "skill": "systematic-debugging",
+      "kind": "should_not_trigger",
+      "prompt": "Add a loading spinner to the dashboard while the report query is running.",
+      "expected_activation": false,
+      "expected_behavior": "do_not_activate"
+    },
+    {
+      "id": "safe-refactoring-direct",
+      "skill": "safe-refactoring",
+      "kind": "direct",
+      "prompt": "Use $safe-refactoring to split this oversized service module into focused units without changing behavior.",
+      "expected_activation": true,
+      "expected_behavior": "pin_behavior_then_refactor"
+    },
+    {
+      "id": "safe-refactoring-indirect",
+      "skill": "safe-refactoring",
+      "kind": "indirect",
+      "prompt": "Extract the duplicated validation logic in these handlers into one shared helper. The API responses must stay identical.",
+      "expected_activation": true,
+      "expected_behavior": "pin_behavior_then_refactor"
+    },
+    {
+      "id": "safe-refactoring-incomplete",
+      "skill": "safe-refactoring",
+      "kind": "incomplete",
+      "prompt": "This module is a mess. Clean it up so it is easier to work with.",
+      "expected_activation": true,
+      "expected_behavior": "clarify_scope_then_refactor"
+    },
+    {
+      "id": "safe-refactoring-negative",
+      "skill": "safe-refactoring",
+      "kind": "should_not_trigger",
+      "prompt": "Fix the rounding defect in the invoice total calculation and add a regression test.",
+      "expected_activation": false,
+      "expected_behavior": "do_not_activate"
+    },
+    {
+      "id": "dependency-upgrade-direct",
+      "skill": "dependency-upgrade",
+      "kind": "direct",
+      "prompt": "Use $dependency-upgrade to move the web framework to the next major version and verify the affected contracts.",
+      "expected_activation": true,
+      "expected_behavior": "staged_upgrade_with_evidence"
+    },
+    {
+      "id": "dependency-upgrade-indirect",
+      "skill": "dependency-upgrade",
+      "kind": "indirect",
+      "prompt": "Dependabot opened a security bump for the JWT library. Review the advisory and land the upgrade safely.",
+      "expected_activation": true,
+      "expected_behavior": "staged_upgrade_with_evidence"
+    },
+    {
+      "id": "dependency-upgrade-incomplete",
+      "skill": "dependency-upgrade",
+      "kind": "incomplete",
+      "prompt": "Our dependencies are getting old, please update them to something newer.",
+      "expected_activation": true,
+      "expected_behavior": "assess_before_upgrading"
+    },
+    {
+      "id": "dependency-upgrade-negative",
+      "skill": "dependency-upgrade",
+      "kind": "should_not_trigger",
+      "prompt": "Rename the internal utils module and update every import that references it.",
+      "expected_activation": false,
+      "expected_behavior": "do_not_activate"
+    },
+    {
+      "id": "prepare-handoff-direct",
+      "skill": "prepare-handoff",
+      "kind": "direct",
+      "prompt": "Use $prepare-handoff to finalize this branch into clean commits with an evidence-backed handoff summary.",
+      "expected_activation": true,
+      "expected_behavior": "evidence_based_handoff"
+    },
+    {
+      "id": "prepare-handoff-indirect",
+      "skill": "prepare-handoff",
+      "kind": "indirect",
+      "prompt": "The feature work is finished and checks pass. Get everything ready for review and write up what was verified.",
+      "expected_activation": true,
+      "expected_behavior": "evidence_based_handoff"
+    },
+    {
+      "id": "prepare-handoff-incomplete",
+      "skill": "prepare-handoff",
+      "kind": "incomplete",
+      "prompt": "I think we are done with this task, wrap the work up for the team.",
+      "expected_activation": true,
+      "expected_behavior": "verify_before_handoff"
+    },
+    {
+      "id": "prepare-handoff-negative",
+      "skill": "prepare-handoff",
+      "kind": "should_not_trigger",
+      "prompt": "Explain how the current session cache eviction policy works in this codebase.",
+      "expected_activation": false,
+      "expected_behavior": "do_not_activate"
     }
   ]
 }

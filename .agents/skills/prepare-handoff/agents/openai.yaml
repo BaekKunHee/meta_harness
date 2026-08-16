@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prepare Handoff"
+  short_description: "Turn finished work into clean commits and an evidence-backed handoff"
+  default_prompt: "Use $prepare-handoff to finalize this work into reviewable commits and a verifiable handoff."

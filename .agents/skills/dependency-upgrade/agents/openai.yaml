@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dependency Upgrade"
+  short_description: "Upgrade dependencies with changelog evidence and staged verification"
+  default_prompt: "Use $dependency-upgrade to apply this dependency change safely and verify the affected contracts."
